@@ -51,7 +51,7 @@ app.get('/products', function(req, res) {
 app.get('/products/:id', function(req, res) {
   const id = req.params.id;
   if (id) {
-    const product = products.find(p => p.id === id);
+    const product = products.find(p => p.id === parseInt(id));
     res.json({ success: 'get call succeed!', url: req.url, product });
   } else {
    res.json({ error: `no product found with id of ${id}` });

@@ -18,7 +18,7 @@
       "function": {
         "capstonerestapiproducts": {
           "deploymentBucketName": "amplify-capstone-dev-212511-deployment",
-          "s3Key": "amplify-builds/capstonerestapiproducts-6967513166376d706178-build.zip"
+          "s3Key": "amplify-builds/capstonerestapiproducts-7531537464766642382f-build.zip"
         }
       }
     }
