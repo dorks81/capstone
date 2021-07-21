@@ -10,6 +10,17 @@
       "StackName": "amplify-capstone-dev-212511",
       "StackId": "arn:aws:cloudformation:us-east-2:775578110720:stack/amplify-capstone-dev-212511/81d4b460-e9c2-11eb-8638-06a416bb26ce",
       "AmplifyAppId": "d35teyrq1gfyrn"
+    },
+    "categories": {
+      "auth": {
+        "capstone8496bdd4": {}
+      },
+      "function": {
+        "capstonerestapiproducts": {
+          "deploymentBucketName": "amplify-capstone-dev-212511-deployment",
+          "s3Key": "amplify-builds/capstonerestapiproducts-6967513166376d706178-build.zip"
+        }
+      }
     }
   }
 }
