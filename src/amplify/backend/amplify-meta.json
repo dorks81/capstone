@@ -1,0 +1,38 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-capstone-dev-105932-authRole",
+      "UnauthRoleArn": "arn:aws:iam::382176504966:role/amplify-capstone-dev-105932-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::382176504966:role/amplify-capstone-dev-105932-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-capstone-dev-105932-deployment",
+      "UnauthRoleName": "amplify-capstone-dev-105932-unauthRole",
+      "StackName": "amplify-capstone-dev-105932",
+      "StackId": "arn:aws:cloudformation:us-east-1:382176504966:stack/amplify-capstone-dev-105932/6d3334f0-eafd-11eb-9746-0eecabf51e5d",
+      "AmplifyAppId": "dozvk93cth01k"
+    }
+  },
+  "auth": {
+    "capstone4f74b1ca": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-capstone-dev-105932-deployment/amplify-cfn-templates/auth/capstone4f74b1ca-cloudformation-template.yml",
+        "logicalId": "authcapstone4f74b1ca"
+      },
+      "lastPushTimeStamp": "2021-07-22T15:06:43.527Z",
+      "output": {
+        "UserPoolId": "us-east-1_vmnTbVURz",
+        "AppClientIDWeb": "42ufvr2p7i87q6cg5fbr4gtp9l",
+        "AppClientID": "1bmb3d2j9sjegdm0fh2bfsvf9r",
+        "IdentityPoolId": "us-east-1:306e2cef-b279-4014-9f0a-1e5eb9703e26",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:382176504966:userpool/us-east-1_vmnTbVURz",
+        "IdentityPoolName": "capstone4f74b1ca_identitypool_4f74b1ca__dev",
+        "UserPoolName": "capstone4f74b1ca_userpool_4f74b1ca"
+      },
+      "lastPushDirHash": "ns5W1R5vau8n6LoAbF89kHd/DFQ="
+    }
+  }
+}
