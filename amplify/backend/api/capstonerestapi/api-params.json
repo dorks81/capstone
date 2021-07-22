@@ -1,0 +1,45 @@
+{
+  "paths": [
+    {
+      "name": "/products",
+      "lambdaFunction": "capstonerestapiproducts",
+      "privacy": {
+        "protected": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ],
+        "unauth": [
+          "/GET"
+        ]
+      },
+      "policyResourceName": "/products"
+    }
+  ],
+  "resourceName": "capstonerestapi",
+  "apiName": "capstonerestapi",
+  "functionArns": [
+    {
+      "lambdaFunction": "capstonerestapiproducts"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 1,
+    "authRoleName": "amplify-capstone-dev-212511-authRole",
+    "unAuthRoleName": "amplify-capstone-dev-212511-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "capstonerestapiproducts",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
