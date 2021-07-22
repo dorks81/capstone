@@ -41,7 +41,7 @@ function App() {
                 <PageWrapper>
                     <Header>
                         <Typography variant={"h3"}>
-                            Bob's Amazing Sandwiches
+                            Bob's Fantastic Sandwiches
                         </Typography>
                         <Typography variant={"body1"}>
                             <UserMenu />
