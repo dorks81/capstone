@@ -21,7 +21,7 @@ const ProductDetails = () => {
             try {
                 const results = await API.get('capstonerestapi', `/products/${params.id}`);
                 console.log('results', results);
-                setProduct(results.product);
+                setProduct(results.data.Item);
             } catch (error) {
                 console.log('error fetching data..', error);
             }
