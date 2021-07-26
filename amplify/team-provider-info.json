@@ -40,7 +40,10 @@
         "capstone8496bdd4": {}
       },
       "function": {
-        "capstonerestapiproducts": {}
+        "capstonerestapiproducts": {
+          "deploymentBucketName": "amplify-capstone-staging-220457-deployment",
+          "s3Key": "amplify-builds/capstonerestapiproducts-7062556c4a595a4e4965-build.zip"
+        }
       }
     }
   }
