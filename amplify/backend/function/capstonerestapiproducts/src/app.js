@@ -1,17 +1,9 @@
-/*
-Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-    http://aws.amazon.com/apache2.0/
-or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
-*/
-
-
-
-
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+const AWS = require('aws-sdk')
+
+const docClient = new AWS.DynamoDB.DocumentClient();
 
 // declare a new express app
 var app = express()
@@ -24,6 +16,8 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "*")
   next()
 });
+
+
 
 const products = [
   { id: 1, name: 'Philly Cheesesteak', price: '10.49', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/PatsCheesesteak.jpg/1600px-PatsCheesesteak.jpg' },
@@ -40,22 +34,37 @@ const products = [
   { id: 12, name: 'Lobster Roll', price: '31.99', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Lobster_Roll_at_the_Lobster_Claw%2C_Bar_Harbor.jpg/240px-Lobster_Roll_at_the_Lobster_Claw%2C_Bar_Harbor.jpg' },
 ];
 
+function id () {
+  return Math.random().toString(36).substring(2) + Date.now().toString(36);
+}
+
 /**********************
  * Example get method *
  **********************/
 
 app.get('/products', function(req, res) {
-  res.json({ success: 'get call succeed!', url: req.url, products });
+  const params = {
+    TableName: "productstable-staging"
+  }
+  docClient.scan(params, function(err, data) {
+    if (err) res.json({ err })
+    else res.json({ data })
+  })
+  // res.json({ success: 'get call succeed!', url: req.url, products });
 });
 
 app.get('/products/:id', function(req, res) {
-  const id = req.params.id;
-  if (id) {
-    const product = products.find(p => p.id === parseInt(id));
-    res.json({ success: 'get call succeed!', url: req.url, product });
-  } else {
-   res.json({ error: `no product found with id of ${id}` });
+  const params = {
+    TableName: "productstable-staging",
+    Key: {
+      id: req.params.id
+    }
   }
+
+  docClient.get(params, function(err, data) {
+    if (err) res.json({ err })
+    else res.json({ data })
+  });
 });
 
 /****************************
@@ -63,8 +72,21 @@ app.get('/products/:id', function(req, res) {
 ****************************/
 
 app.post('/products', function(req, res) {
+  const params = {
+    TableName: "productstable-staging",
+    Item: {
+      id: id(),
+      name: req.body.name,
+      price: req.body.price,
+      imageUrl: req.body.imageUrl
+    }
+  }
+  docClient.put(params, function(err, data) {
+    if (err) res.json({ err })
+    else res.json({ success: 'Product created successfully!' })
+  })
   // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+  // res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
 
 app.post('/products/*', function(req, res) {
