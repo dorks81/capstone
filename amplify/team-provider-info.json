@@ -42,7 +42,7 @@
       "function": {
         "capstonerestapiproducts": {
           "deploymentBucketName": "amplify-capstone-staging-220457-deployment",
-          "s3Key": "amplify-builds/capstonerestapiproducts-7062556c4a595a4e4965-build.zip"
+          "s3Key": "amplify-builds/capstonerestapiproducts-56496f44325852515844-build.zip"
         }
       }
     }

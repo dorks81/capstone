@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {API, Auth} from "aws-amplify";
+import { API } from "aws-amplify";
 import {
     useParams
 } from "react-router-dom";

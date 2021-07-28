@@ -89,9 +89,21 @@ app.post('/products', function(req, res) {
   // res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
 
-app.post('/products/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+app.post('/products/:id', function(req, res) {
+  const params = {
+    TableName: "productstable-staging",
+    Item: {
+      id: req.params.id,
+      name: req.body.name,
+      price: req.body.price,
+      imageUrl: req.body.imageUrl
+    }
+  }
+  docClient.put(params, function(err, data) {
+    if (err) res.json({ err })
+    else res.json({ success: 'Product updated successfully!' })
+  })
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body })
 });
 
 /****************************
