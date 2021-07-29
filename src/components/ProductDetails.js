@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {API, Auth} from "aws-amplify";
+import { API } from "aws-amplify";
 import {
     useParams
 } from "react-router-dom";
@@ -21,7 +21,7 @@ const ProductDetails = () => {
             try {
                 const results = await API.get('capstonerestapi', `/products/${params.id}`);
                 console.log('results', results);
-                setProduct(results.product);
+                setProduct(results.data.Item);
             } catch (error) {
                 console.log('error fetching data..', error);
             }
