@@ -1,3 +1,8 @@
+# Team 2 application URL
+https://main.dy9df9a3pcxby.amplifyapp.com/
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
